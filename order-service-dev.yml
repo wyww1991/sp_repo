@@ -1,36 +1,28 @@
 spring:
   application:
-    name: order-service
+    name: item-service
     
-# server:
-#  port: 8201
-  
-  
+#server:
+#  port: 8001
+  rabbitmq:
+    host: 192.168.80.128
+    port: 5672
+    username: admin
+    password: admin
 eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
-      
-feign:
-  hystrix:
-    enabled: true
-    
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
-        
+
 ---
 spring:
-  profiles: order1
+  profiles: item1
   
 server:
-  port: 8201
-  
+  port: 8001
 ---
 spring:
-  profiles: order2
-  
+  profiles: item2
+
 server:
-  port: 8202
+  port: 8002
